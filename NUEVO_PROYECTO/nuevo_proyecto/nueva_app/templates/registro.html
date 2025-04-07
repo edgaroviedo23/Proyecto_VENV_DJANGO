@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login - Portafolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/styleportafolio.css' %}">
+  </head>
+  <body>
+
+    <img id="background" src="{% static 'img/fondo1.webp' %}" alt="Fondo" class="background">
+    
+    <!-- Contenedor que agrupa el formulario y el texto debajo -->
+    <div class="form-container">
+      <!-- Formulario de registro centrado -->
+      <form class="form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+    
+    <div class="welcome-text" style="text-align: center; margin-top: 20px;">
+        <p>Bienvenido ¡Regístrate ahora!</p>
+        <p>Por favor completa el siguiente formulario</p>
+    </div>
+
+    <p><a href="{% url 'home' %}">Inicio</a></p>
+    <p><a class="login-link" href="{% url 'login' %}">¿Ya tienes cuenta? ¡Inicia sesión!</a></p>
+    <!-- Botón para cambiar tema -->
+    <button id="toggle-theme">Cambiar tema</button>
+
+    <footer>
+      <p>Todos los derechos reservados</p>
+    </footer>
+
+    <div class="background light-mode"></div>
+
+  </body>
+</html>

@@ -1,0 +1,322 @@
+/* Reset y fondo global */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+  color: white;
+}
+
+/* Fuentes personalizadas */
+@font-face {
+  font-family: 'OCRAEXT';
+  src: url("fuentes/OCRAEXT.TTF") format('truetype');
+}
+
+@font-face {
+  font-family: 'MOD20';
+  src: url("fuentes/MOD20.TTF") format('truetype');
+}
+
+@font-face {
+  font-family: 'Oleragie';
+  src: url("fuentes/Oleragie.otf") format('opentype');
+}
+
+@font-face {
+  font-family: 'Lovelace';
+  src: url("fuentes/Lovelace-Extrabold-Italic-trial.ttf") format('truetype');
+}
+
+/* Transiciones comunes para encabezados y párrafos */
+h1, h2, h3, h4, h5, p, footer, form label {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Encabezados con posición y estilo individual */
+h1 {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  margin: 0;
+  font-size: 24px;
+  font-family: 'OCRAEXT';
+}
+
+h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 90px;
+  font-family: 'MOD20';
+  position: absolute;
+  top: 25%;
+  left: 23%;
+}
+
+h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 50px;
+  font-family: 'Oleragie';
+  position: absolute;
+  top: 35%;
+  left: 43%;
+}
+
+h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 130px;
+  font-family: 'Lovelace';
+  position: absolute;
+  top: 35%;
+  left: 20%;
+}
+
+h5 {
+  color: #fff;
+  position: absolute;
+  top: 42%;
+  left: 32%;
+  font-size: 45px;
+  font-family: 'OCRAEXT';
+}
+
+form {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  font-size: 45px;
+  font-family: 'OCRAEXT';
+}
+
+/* Efecto hover común para encabezados */
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
+  transform: scale(1.1);
+  color: #ffcc00;
+}
+
+/* SVG y contenedor */
+.cls-1 { fill: #fff; stroke-width: 0; }
+#Capa_1 { width: 50px; height: 50px; }
+.rotate-svg {
+  transition: transform 0.5s ease;
+}
+.rotate-svg:hover { animation: spin 1ms infinite; }
+
+/* Footer y contador */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+}
+
+.container {
+  margin: 3%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+#visit-counter {
+  margin: 20px 0 20px 20px;
+  font-size: 18px;
+  font-family: 'OCRAEXT';
+  color: #fff;
+}
+
+#visit-counter span { font-weight: bold; color: #ffcc00; }
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 204, 0, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  from { transform: scale(0); opacity: 0.6; }
+  to { transform: scale(3); opacity: 0; }
+}
+
+/* Formularios */
+.form {
+  padding: 15px;
+  width: 35%;
+  position: absolute;
+  top: 43%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.form input,
+.form textarea {
+  width: 150%;
+  padding: 8px;
+  margin: 5px 0 10px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.form label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  text-align: left;
+}
+
+.form button {
+  background: #ffcc00;
+  color: #000;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 157%;
+}
+
+.form button:hover { background: #ff9900; transform: scale(1.05); }
+
+/* Botones fijos */
+#lang-btn, #toggle-theme {
+  position: fixed;
+  padding: 10px 15px;
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+#lang-btn {
+  top: 651px;
+  right: 90px;
+}
+
+#toggle-theme {
+  top: 650px;
+  right: 35px;
+}
+
+#lang-btn:hover,
+#toggle-theme:hover { background: #ff9900; }
+
+/* Fondo y modo oscuro */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.light-mode { background-image: url("img/fondo1.webp"); }
+.dark-mode { background-image: url("img/fondo.webp"); }
+
+/* Modo oscuro para textos */
+.dark-mode-text h1,
+.dark-mode-text h2,
+.dark-mode-text h3,
+.dark-mode-text h4,
+.dark-mode-text h5,
+.dark-mode-text p,
+.dark-mode-text footer,
+.dark-mode-text form label {
+  color: #000 !important;
+}
+
+.dark-mode-text .cls-1 { fill: #000 !important; }
+
+/* Menú overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.menu-overlay ul {
+  list-style: none;
+  padding: 20px;
+  background: #1f1f1f;
+  border-radius: 10px;
+}
+
+.menu-overlay li { margin: 10px 0; }
+
+.menu-overlay a,
+.menu-overlay button {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 20px;
+  display: block;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.menu-overlay button { color: red; }
+
+/* Enlace de login y textos de bienvenida */
+.login-link { line-height: 400px; }
+.welcome-text { text-align: center; margin-top: 100px; }
+
+/* Animación de rotación del SVG */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate-svg:hover {
+  animation: spin 1ms infinite;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1200px) {
+  h2 { font-size: 70px; top: 20%; left: 15%; }
+  h3 { font-size: 40px; top: 30%; left: 35%; }
+  h4 { font-size: 100px; top: 30%; left: 15%; }
+  h5 { font-size: 35px; top: 40%; left: 25%; }
+}
+
+@media (max-width: 768px) {
+  h2 { font-size: 50px; top: 10%; left: 10%; }
+  h3 { font-size: 30px; top: 25%; left: 25%; }
+  h4 { font-size: 70px; top: 25%; left: 10%; }
+  h5 { font-size: 25px; top: 35%; left: 20%; }
+}
+
+@media (max-width: 480px) {
+  h2 { font-size: 40px; top: 10%; left: 5%; }
+  h3 { font-size: 20px; top: 20%; left: 15%; }
+  h4 { font-size: 50px; top: 20%; left: 5%; }
+  h5 { font-size: 20px; top: 30%; left: 15%; }
+}
